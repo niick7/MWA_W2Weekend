@@ -1,0 +1,15 @@
+<p>
+  <form name="addBook" class="search_text" ng-submit="vm.addBook()">
+    <p><input ng-model="vm.title" required placeholder="Enter title"/></p>
+    <p><input required ng-model="vm.price" placeholder="Enter price"/></p>
+    <p><input type="number" required ng-model="vm.rate" placeholder="Enter rate"/></p>
+    <p><input type="number" required ng-model="vm.year" placeholder="Enter year"/></p>
+    <button type="submit">Add book</button>
+  </form>
+</p>
+
+<ul>
+  <li ng-repeat="book in vm.books | filter: searchText">
+    <a href="#!/books/{{book._id}}">{{book.title | uppercase}}</a> - {{book.price | currency: "$"}} - <a ng-click="vm.deleteBook({{book._id}})" href="javascript:">Delete</a>
+  </li>
+</ul>

@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const dbURL = "mongodb://localhost:27017/GamesDB";
 
-require("./models/games");
-
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 mongoose.connection.on("connected", function(){
@@ -33,3 +31,6 @@ process.once("SIGUSR2", function() {
     process.kill(process.pid, "SIGUSR2");
   });
 })
+
+require("./models/games");
+require("./models/users");
